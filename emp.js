@@ -40,27 +40,7 @@ appEmp.post("/",function(req,res)
 
 
 
-appEmp.put("/:no",function(req,res){
-    let eno=parseInt(req.params.no);
-    let ename=req.body.name;
-    let eaddress=req.body.address;
 
-    let query=`update emp set name='${ename}', address='${eaddress}' where no='${eno}'`;
-    //console.log(query);
-    //res.send(query);
-    connection.query(query,function(err,result){
-        if(err == null)
-        {
-           // res.send(result);
-            res.contentType("application/json");
-            res.send(JSON.stringify(result));
-        }
-        else{
-            res.err("something wrong");
-        }
-
-    })
-});
 
 appEmp.delete("/:no",function(req,res){
     let eno=parseInt(req.params.no);
